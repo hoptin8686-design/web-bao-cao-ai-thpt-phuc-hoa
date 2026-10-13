@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Báo Cáo Nghiên Cứu: Ứng Dụng Trí Tuệ Nhân Tạo Trong Dạy Học - THPT Phục Hòa</title>
+  <meta name="description" content="Báo cáo khoa học nghiên cứu giải pháp ứng dụng AI trong thiết kế bài giảng (CV 5512) và đổi mới phương pháp dạy học tại Trường THPT Phục Hòa, tỉnh Cao Bằng.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Header / Navigation -->
+  <header class="navbar-container">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-info">
+        <div class="brand-logo-badge">AI</div>
+        <div class="brand-text-col">
+          <h1>THPT Phục Hòa</h1>
+          <span>Đổi Mới Giáo Dục Số 2026–2027</span>
+        </div>
+      </a>
+      <ul class="nav-menu">
+        <li><a href="#tab-report" class="active nav-link" onclick="switchTab('report')">Toàn văn Báo cáo</a></li>
+        <li><a href="#tab-solutions" class="nav-link" onclick="switchTab('solutions')">4 Giải pháp cốt lõi</a></li>
+        <li><a href="#tab-tables" class="nav-link" onclick="switchTab('tables')">Bảng đối chiếu</a></li>
+        <li><a href="#tab-timeline" class="nav-link" onclick="switchTab('timeline')">Lộ trình thử nghiệm</a></li>
+        <li><a href="#tab-prompts" class="nav-link" onclick="switchTab('prompts')">Thư viện Prompt</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="Bao_cao_AI_THPT_Phuc_Hoa.docx" download class="btn btn-accent">
+          📥 Tải File Word (.docx)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-inner">
+      <div class="badge-tag">
+        Sở GD&ĐT Cao Bằng • Trường THPT Phục Hòa
+      </div>
+      <h1 class="hero-title">
+        NGHIÊN CỨU GIẢI PHÁP ỨNG DỤNG TRÍ TUỆ NHÂN TẠO TRONG THIẾT KẾ BÀI GIẢNG VÀ ĐỔI MỚI PHƯƠNG PHÁP DẠY HỌC
+      </h1>
+      <p class="hero-subtitle">
+        Khung giải pháp sư phạm chuẩn hóa theo Công văn 5512/BGDĐT, Cơ chế rào chắn bảo vệ nhận thức (Pedagogical Guardrails) và Đánh giá 3 mặt phát triển năng lực độc lập của học sinh THPT Phục Hòa.
+      </p>
+      <div class="hero-cta-group">
+        <a href="Bao_cao_AI_THPT_Phuc_Hoa.docx" download class="btn btn-accent" style="padding: 0.8rem 1.6rem; font-size: 1rem;">
+          📥 Tải File Word Hoàn Chỉnh (.docx)
+        </a>
+        <button class="btn btn-primary" onclick="switchTab('report')" style="padding: 0.8rem 1.6rem; font-size: 1rem;">
+          📖 Đọc Trực Tuyến Toàn Văn
+        </button>
+        <button class="btn btn-outline" onclick="switchTab('solutions')">
+          💡 Khám Phá 4 Giải Pháp Cốt Lõi
+        </button>
+      </div>
+
+      <!-- Key Stats -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-number">12</span>
+          <span class="stat-label">Công trình nghiên cứu quốc tế 2019–2026 tổng quan chuyên sâu</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">04</span>
+          <span class="stat-label">Hệ thống giải pháp sư phạm chuẩn hóa theo CV 5512/BGDĐT</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">14 / 520</span>
+          <span class="stat-label">Lớp học và học sinh THPT Phục Hòa thuộc phạm vi áp dụng</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-number">03 Mặt</span>
+          <span class="stat-label">Khung đánh giá: Sản phẩm (30%) – Quá trình (30%) – Độc lập (40%)</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+    <!-- Tabs Nav Bar -->
+    <div class="tabs-nav">
+      <button class="tab-btn active" id="btn-tab-report" onclick="switchTab('report')">📄 1. Toàn văn Báo cáo (9 Mục Chuẩn)</button>
+      <button class="tab-btn" id="btn-tab-solutions" onclick="switchTab('solutions')">💡 2. Hệ thống 4 Giải pháp Cốt lõi</button>
+      <button class="tab-btn" id="btn-tab-tables" onclick="switchTab('tables')">📊 3. Bảng Dữ liệu & Đối chiếu</button>
+      <button class="tab-btn" id="btn-tab-timeline" onclick="switchTab('timeline')">🗓️ 4. Kế hoạch Thử nghiệm 2026–2027</button>
+      <button class="tab-btn" id="btn-tab-prompts" onclick="switchTab('prompts')">🤖 5. Thư viện Prompt Sư phạm</button>
+    </div>
+
+    <!-- TAB 1: TOÀN VĂN BÁO CÁO -->
+    <div id="tab-report" class="tab-content active">
+      <div class="paper-container">
+        <!-- Sticky Sidebar Navigation -->
+        <aside class="paper-sidebar">
+          <div class="sidebar-title">Mục lục Báo cáo</div>
+          <ul class="toc-list">
+            <li><a href="#sec-tom-tat">1. Tóm tắt</a></li>
+            <li><a href="#sec-tu-khoa">2. Từ khóa</a></li>
+            <li><a href="#sec-gioi-thieu">3. Giới thiệu</a></li>
+            <li><a href="#sec-tong-quan">4. Tổng quan nghiên cứu</a></li>
+            <li><a href="#sec-phuong-phap">5. Phương pháp nghiên cứu</a></li>
+            <li><a href="#sec-ket-qua">6. Kết quả & Hệ giải pháp</a></li>
+            <li><a href="#sec-thao-luan">7. Thảo luận</a></li>
+            <li><a href="#sec-ket-luan">8. Kết luận & Khuyến nghị</a></li>
+            <li><a href="#sec-tai-lieu">9. Tài liệu tham khảo</a></li>
+          </ul>
+          <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+            <a href="Bao_cao_AI_THPT_Phuc_Hoa.docx" download class="btn btn-accent" style="width: 100%; font-size: 0.8rem; padding: 0.5rem;">
+              📥 Tải File Word
+            </a>
+          </div>
+        </aside>
+
+        <!-- Paper Body -->
+        <article class="paper-body">
+          <div class="paper-author-box">
+            <h1 class="paper-main-title">NGHIÊN CỨU GIẢI PHÁP ỨNG DỤNG TRÍ TUỆ NHÂN TẠO TRONG THIẾT KẾ BÀI GIẢNG VÀ ĐỔI MỚI PHƯƠNG PHÁP DẠY HỌC Ở TRƯỜNG THPT PHỤC HÒA</h1>
+            <p><strong>Đơn vị:</strong> Trường THPT Phục Hòa, Huyện Quảng Hòa, Tỉnh Cao Bằng</p>
+            <p><strong>Báo cáo Nghiên cứu Chuyên đề Sư phạm & Ứng dụng CNTT – Năm học 2026–2027</strong></p>
+          </div>
+
+          <!-- Section 1 -->
+          <section id="sec-tom-tat" class="paper-section">
+            <h2 class="paper-section-title">1. Tóm tắt</h2>
+            <p><strong>Mục tiêu:</strong> Báo cáo tập trung nghiên cứu, tổng hợp các cơ sở lý luận khoa học và đề xuất hệ thống giải pháp ứng dụng trí tuệ nhân tạo (AI) trong quy trình thiết kế bài giảng (kế hoạch bài dạy theo Công văn 5512/BGDĐT, học liệu số) và đổi mới phương pháp dạy học (PPDH tích cực, gia sư AI thích ứng, cá nhân hóa học tập), nhằm nâng cao chất lượng giáo dục tại Trường THPT Phục Hòa (tỉnh Cao Bằng).</p>
+            <p><strong>Phương pháp:</strong> Nghiên cứu kết hợp tổng quan tài liệu có cấu trúc theo khung PRISMA điều chỉnh (tổng hợp chuyên sâu 12 công trình kinh điển và cập nhật giai đoạn 2019–2026 từ các nguồn uy tín quốc tế và trong nước) với phân tích dữ liệu thực tế tại THPT Phục Hòa (14 lớp học, đặc thù học sinh miền núi, hạ tầng CNTT và khảo sát mức độ sẵn sàng chuyển đổi số).</p>
+            <p><strong>Kết quả:</strong> Báo cáo thiết lập 04 hệ thống giải pháp cốt lõi: (1) Khung quy trình 4 bước ứng dụng AI trong thiết kế bài giảng chuẩn hóa theo Công văn 5512; (2) Mô hình đổi mới PPDH kết hợp AI với cơ chế 'rào chắn sư phạm' (pedagogical guardrails) bảo vệ năng lực nhận thức của học sinh; (3) Bộ chỉ số năng lực hiểu biết AI (AI Literacy) và khung liêm chính học thuật phù hợp môi trường giáo dục phổ thông; (4) Khung đánh giá 3 mặt (Sản phẩm - Quá trình - Năng lực độc lập khi rút hỗ trợ AI).</p>
+            <p><strong>Kết luận:</strong> Ứng dụng AI ở trường THPT Phục Hòa phải lấy mục tiêu sư phạm và năng lực tự chủ của người học làm trung tâm; công nghệ đóng vai trò trợ lý hỗ trợ tối ưu hóa thời gian sư phạm của giáo viên và thúc đẩy tư duy phản biện của học sinh, kiên quyết khắc phục tình trạng sao chép thụ động.</p>
+          </section>
+
+          <!-- Section 2 -->
+          <section id="sec-tu-khoa" class="paper-section">
+            <h2 class="paper-section-title">2. Từ khóa</h2>
+            <p><em>Trí tuệ nhân tạo (AI); Thiết kế bài giảng; Kế hoạch bài dạy 5512; Đổi mới phương pháp dạy học; THPT Phục Hòa; Rào chắn sư phạm (Guardrails); Năng lực học tập độc lập; Hiểu biết AI (AI Literacy); Đánh giá 3 mặt.</em></p>
+          </section>
+
+          <!-- Section 3 -->
+          <section id="sec-gioi-thieu" class="paper-section">
+            <h2 class="paper-section-title">3. Giới thiệu</h2>
+            <p>Chương trình Giáo dục phổ thông (GDPT) 2018 đặt trọng tâm chuyển từ việc truyền thụ kiến thức một chiều sang phát triển toàn diện phẩm chất và năng lực người học. Trong tiến trình này, vai trò của người thầy đã chuyển dịch sâu sắc từ người truyền đạt kiến thức thuần túy thành người thiết kế, tổ chức, điều phối và hướng dẫn các hoạt động học tập tích cực [13,14]. Cùng với đó, làn sóng phát triển bùng nổ của Trí tuệ nhân tạo (AI), đặc biệt là các mô hình ngôn ngữ lớn (LLMs) và các hệ thống AI tạo sinh (Generative AI) từ năm 2023 đến nay, đang tạo ra những chuyển biến mang tính cách mạng đối với mọi lĩnh vực của đời sống xã hội và trực tiếp định hình lại môi trường giáo dục [2,9,23].</p>
+            <p>Tại Trường THPT Phục Hòa – một trường trung học phổ thông thuộc huyện Quảng Hòa, tỉnh Cao Bằng – công tác đổi mới phương pháp dạy học và kiểm tra đánh giá luôn được Ban Giám hiệu và tập thể Hội đồng sư phạm xác định là khâu đột phá then chốt. Với quy mô 14 lớp học, hơn 500 học sinh (chủ yếu là con em đồng bào các dân tộc Tày, Nùng... trên địa bàn), nhà trường có những thuận lợi nhất định về tinh thần đổi mới, nhiệt huyết của đội ngũ giáo viên, nhưng đồng thời cũng đối mặt với nhiều thách thức đặc thù: điều kiện tiếp cận thiết bị số ngoài giờ học của học sinh chưa đồng đều; quỹ thời gian của giáo viên dành cho việc biên soạn học liệu phân hóa, xây dựng phiếu học tập đa dạng và thiết kế tình huống dạy học còn hạn chế; một bộ phận học sinh còn thụ động trong tự học và giải quyết vấn đề [10,21].</p>
+            <p>Sự xuất hiện của các công cụ AI (như ChatGPT, Gemini, Claude, Copilot, Canva Magic...) mở ra cơ hội to lớn giúp giáo viên THPT Phục Hòa giải phóng sức lao động thủ công trong việc soạn thảo giáo án, thiết kế bài giảng đa phương tiện, tạo câu hỏi phân hóa theo các mức độ nhận thức (biết, hiểu, vận dụng, vận dụng cao) và xây dựng kịch bản dạy học tương tác. Tuy nhiên, nếu thiếu vắng cơ chế kiểm soát sư phạm và định hướng rõ ràng, việc lạm dụng AI sẽ dẫn đến những hệ lụy nghiêm trọng: học sinh sao chép máy móc lời giải, suy giảm khả năng tư duy độc lập và giải quyết vấn đề; giáo viên dễ phụ thuộc vào các gợi ý bài giảng rập khuôn hoặc gặp phải hiện tượng 'ảo giác thông tin' (hallucination) mà AI tạo ra [2,10,31].</p>
+            <p>Do đó, việc nghiên cứu một cách bài bản, khoa học các giải pháp ứng dụng AI vào thiết kế bài giảng và đổi mới phương pháp dạy học tại Trường THPT Phục Hòa là một đòi hỏi cấp bách cả về mặt lý luận lẫn thực tiễn. Báo cáo tập trung giải quyết 04 câu hỏi nghiên cứu cốt lõi:</p>
+            <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+              <li><strong>Câu hỏi 1:</strong> AI có thể hỗ trợ những khâu, hoạt động cụ thể nào trong quy trình thiết kế bài giảng (theo Công văn 5512/BGDĐT) và xây dựng học liệu số tại THPT Phục Hòa?</li>
+              <li><strong>Câu hỏi 2:</strong> Những nguyên tắc và điều kiện sư phạm nào cần được thiết lập để việc ứng dụng AI thực sự nâng cao chất lượng học tập thay vì triệt tiêu tư duy của học sinh?</li>
+              <li><strong>Câu hỏi 3:</strong> Cần trang bị những năng lực hiểu biết AI (AI Literacy), chuẩn mực đạo đức và quy tắc liêm chính học thuật nào cho đội ngũ giáo viên và học sinh nhà trường?</li>
+              <li><strong>Câu hỏi 4:</strong> Khung kiểm tra, đánh giá học tập cần được tái cấu trúc ra sao nhằm đo lường chính xác năng lực thực chất của học sinh và phân biệt giữa kết quả có AI trợ giúp với năng lực học tập độc lập khi rút hỗ trợ?</li>
+            </ul>
+          </section>
+
+          <!-- Section 4 -->
+          <section id="sec-tong-quan" class="paper-section">
+            <h2 class="paper-section-title">4. Tổng quan nghiên cứu</h2>
+            <h3 class="paper-subsection-title">4.1 Cấu trúc tập tài liệu tổng quan chuyên sâu</h3>
+            <p>Báo cáo đã phân tích tổng hợp có cấu trúc 12 công trình nghiên cứu khoa học tiêu biểu ([1]–[12]) công bố từ 2019 đến 2026 trên các tạp chí quốc tế hàng đầu (Computers & Education, PNAS, Scientific Reports, IJETHE...), bao gồm 9 bài tổng quan hệ thống, 1 bài phân tích lý luận chuyên sâu và 2 nghiên cứu thực nghiệm đối chứng ngẫu nhiên (RCT). Bên cạnh đó, 19 tài liệu hướng dẫn và khung năng lực UNESCO ([13]–[31]) được dùng làm cơ sở đối chiếu hoàn thiện.</p>
+            
+            <p class="table-caption">Bảng 1. Tập 12 công trình nghiên cứu nền tảng được dùng cho tổng quan chuyên sâu</p>
+            <div class="table-responsive">
+              <table class="academic-table">
+                <thead>
+                  <tr>
+                    <th>Mã</th>
+                    <th>Tác giả & Năm</th>
+                    <th>Thiết kế nghiên cứu</th>
+                    <th>Phát hiện cốt lõi</th>
+                    <th>Ý nghĩa vận dụng cho THPT Phục Hòa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>[1]</strong></td>
+                    <td>Zawacki-Richter et al. (2019)</td>
+                    <td>Tổng quan hệ thống (146 bài)</td>
+                    <td>Phân loại 4 nhóm ứng dụng AI: dự đoán, đánh giá, hệ thống thích ứng, gia sư thông minh.</td>
+                    <td>Cung cấp khung phân loại hoạt động sư phạm, đặt mục tiêu dạy học lên trước công nghệ.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[2]</strong></td>
+                    <td>Kasneci et al. (2023)</td>
+                    <td>Phân tích học thuật chuyên sâu</td>
+                    <td>Nhận diện cơ hội tạo nội dung, cá nhân hóa của LLM cùng thách thức thiên lệch, bản quyền, liêm chính.</td>
+                    <td>Coi sản phẩm AI là bản nháp đầu vào; giáo viên giữ quyền kiểm duyệt nội dung và định hướng.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[3]</strong></td>
+                    <td>Casal-Otero et al. (2023)</td>
+                    <td>Tổng quan K–12 về AI literacy</td>
+                    <td>Xác định các thành phần hiểu biết AI: khái niệm, kỹ năng dùng, tư duy phản biện và đạo đức.</td>
+                    <td>Thiết kế chuẩn đầu ra AI Literacy cho học sinh THPT Phục Hòa, gắn kiến thức với trách nhiệm số.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[4]</strong></td>
+                    <td>Lo (2023)</td>
+                    <td>Tổng quan nhanh (50 tài liệu)</td>
+                    <td>Đánh giá tác động ban đầu của ChatGPT; nguy cơ tạo thông tin giả và sai lệch logic.</td>
+                    <td>Yêu cầu học sinh và giáo viên luôn kiểm chứng thông tin, chạy thử nghiệm và đối chiếu SGK.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[5]</strong></td>
+                    <td>Bond et al. (2024)</td>
+                    <td>Meta-review (66 tổng quan)</td>
+                    <td>Nhấn mạnh tính nghiêm cẩn phương pháp, liêm chính học thuật và sự cộng tác đa ngành.</td>
+                    <td>Minh bạch hóa việc sử dụng AI trong nhà trường; xây dựng quy ước trích dẫn rõ ràng.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[6]</strong></td>
+                    <td>Martin et al. (2024)</td>
+                    <td>Tổng quan K–12 (66 nghiên cứu)</td>
+                    <td>Bản đồ ứng dụng AI ở phổ thông: tích hợp môn học, dạy học thích ứng, đánh giá năng lực.</td>
+                    <td>Định hình các kịch bản tích hợp AI vào môn Tin học và các môn Khoa học tự nhiên, Xã hội.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[7]</strong></td>
+                    <td>Díaz & Nussbaum (2024)</td>
+                    <td>Tổng quan 183 bài K–12</td>
+                    <td>Đề xuất cách tiếp cận 'Sư phạm làm trung tâm' (Pedagogical Intelligence); AI chỉ là phương tiện.</td>
+                    <td>Thiết kế nhiệm vụ học tập thúc đẩy nhận thức bậc cao; tránh để AI làm thay tư duy của trò.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[8]</strong></td>
+                    <td>Kestin et al. (2025)</td>
+                    <td>Thực nghiệm ngẫu nhiên (RCT)</td>
+                    <td>Gia sư AI được thiết kế theo nguyên lý sư phạm tạo kết quả vượt trội so với tự học thông thường.</td>
+                    <td>Khẳng định giá trị của việc thiết kế gợi ý theo mức (scaffolding) thay vì cung cấp đáp án trọn gói.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[9]</strong></td>
+                    <td>Marzano (2026)</td>
+                    <td>Tổng quan K–12 cập nhật</td>
+                    <td>AI tạo sinh mở ra khả năng cá nhân hóa tiến trình học và nâng cao năng lực chuyên môn GV.</td>
+                    <td>Đề xuất chương trình tập huấn thực chiến cho giáo viên THPT Phục Hòa về kỹ nghệ câu lệnh.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[10]</strong></td>
+                    <td>Bastani et al. (2025)</td>
+                    <td>Thực nghiệm RCT ở trường THPT</td>
+                    <td>Chứng minh: AI không có rào chắn gây hại cho việc học; AI có rào chắn (guardrails) giúp duy trì năng lực.</td>
+                    <td>Cơ sở khoa học sống còn: Phải thiết lập 'Rào chắn sư phạm' và điểm rút hỗ trợ trong tiết học.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[11]</strong></td>
+                    <td>Deng et al. (2025)</td>
+                    <td>Phân tích gộp (Meta-analysis)</td>
+                    <td>ChatGPT nâng cao hiệu quả học tập ở mức trung bình; phụ thuộc vào cách đo lường đầu ra.</td>
+                    <td>Đo lường năng lực học sinh qua nhiều thời điểm; không đánh đồng cảm nhận tích cực với năng lực thực.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>[12]</strong></td>
+                    <td>Létourneau et al. (2025)</td>
+                    <td>Tổng quan hệ thống ITS K–12</td>
+                    <td>Hệ thống gia sư AI mang lại lợi thế rõ rệt khi so sánh với dạy học truyền thống thiếu phản hồi.</td>
+                    <td>Tận dụng AI làm công cụ phản hồi liên tục trong các bài thực hành lập trình và bài tập tính toán.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="paper-subsection-title">4.2 Ba bài học cốt lõi từ thực tiễn quốc tế</h3>
+            <p>Nghiên cứu rút ra 03 luận điểm nền tảng: (1) Cần thiết lập cơ chế <strong>Rào chắn bảo vệ nhận thức (Pedagogical Guardrails)</strong> để tránh ảo tưởng hoàn thành; (2) Giữ vững nguyên tắc <strong>Sư phạm dẫn dắt công nghệ</strong>; (3) Tích hợp năng lực <strong>Hiểu biết AI (AI Literacy) và Liêm chính học thuật</strong> trong mọi hoạt động.</p>
+          </section>
+
+          <!-- Section 5 -->
+          <section id="sec-phuong-phap" class="paper-section">
+            <h2 class="paper-section-title">5. Phương pháp nghiên cứu</h2>
+            <p>Nghiên cứu kết hợp tổng quan tài liệu có cấu trúc theo chuẩn PRISMA 2020 và nghiên cứu hành động sư phạm (Action Research) tại THPT Phục Hòa qua 4 bước: Nhận diện & xác lập truy vấn; Sàng lọc tài liệu; Khảo sát thực trạng tại 14 lớp; Thiết lập và thẩm định hệ giải pháp.</p>
+            <p class="table-caption">Bảng 2. Nhật ký chuỗi tìm kiếm và truy vấn dữ liệu học thuật</p>
+            <div class="table-responsive">
+              <table class="academic-table">
+                <thead>
+                  <tr>
+                    <th>Mã</th>
+                    <th>Chuỗi từ khóa tìm kiếm (Search String)</th>
+                    <th>Nguồn cơ sở dữ liệu</th>
+                    <th>Số kết quả</th>
+                    <th>Mục tiêu phục vụ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Q1</strong></td>
+                    <td>('generative AI' OR 'ChatGPT') AND ('lesson plan' OR 'teaching design') AND 'secondary education'</td>
+                    <td>Scopus, ScienceDirect, Springer</td>
+                    <td>24 bản ghi</td>
+                    <td>Khảo sát ứng dụng AI trong thiết kế bài giảng.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Q2</strong></td>
+                    <td>'artificial intelligence' AND ('pedagogical methods' OR 'active learning') AND 'high school'</td>
+                    <td>ERIC, IEEE Xplore, MDPI</td>
+                    <td>18 bản ghi</td>
+                    <td>Khảo sát đổi mới phương pháp dạy học.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Q3</strong></td>
+                    <td>'AI tutoring' AND ('guardrails' OR 'scaffolding') AND 'independent learning' AND 'RCT'</td>
+                    <td>PNAS, Nature npj, Taylor & Francis</td>
+                    <td>12 bản ghi</td>
+                    <td>Khảo sát cơ chế bảo vệ nhận thức và gia sư AI.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Q4</strong></td>
+                    <td>'AI literacy' AND 'competency framework' AND ('K-12' OR 'teachers') AND 'ethics'</td>
+                    <td>UNESCO, Computers & Education</td>
+                    <td>15 bản ghi</td>
+                    <td>Xây dựng khung năng lực số và đạo đức AI.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Q5</strong></td>
+                    <td>Thực trạng ứng dụng CNTT và đổi mới PPDH tại trường THPT miền núi, Cao Bằng</td>
+                    <td>Dữ liệu nội bộ THPT Phục Hòa</td>
+                    <td>14 lớp, 38 GV, 520 HS</td>
+                    <td>Khảo sát thực tiễn điều kiện triển khai tại đơn vị.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Section 6 -->
+          <section id="sec-ket-qua" class="paper-section">
+            <h2 class="paper-section-title">6. Kết quả nghiên cứu: Hệ thống 4 giải pháp cốt lõi</h2>
+            
+            <h3 class="paper-subsection-title">6.1 Giải pháp 1: Khung quy trình 4 bước thiết kế bài giảng chuẩn hóa theo CV 5512/BGDĐT</h3>
+            <p>Quy trình bao gồm 4 bước chuẩn mực: Bước 1 - Xác lập mục tiêu và ngữ cảnh sư phạm; Bước 2 - Thiết kế câu lệnh chuyên sâu (Pedagogical Prompting); Bước 3 - Sàng lọc, kiểm chứng và biên tập sư phạm; Bước 4 - Đóng gói học liệu số tương tác.</p>
+            <p class="table-caption">Bảng 4. Ma trận phân công vai trò giữa Giáo viên - AI - Học sinh trong thiết kế bài giảng</p>
+            <div class="table-responsive">
+              <table class="academic-table">
+                <thead>
+                  <tr>
+                    <th>Khâu thiết kế</th>
+                    <th>Vai trò của AI</th>
+                    <th>Vai trò của Giáo viên</th>
+                    <th>Sản phẩm đầu ra cần kiểm tra</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Mục tiêu & chuỗi hoạt động</strong></td>
+                    <td>Gợi ý các ý tưởng tình huống khởi động, cấu trúc thời gian.</td>
+                    <td>Quyết định mục tiêu phát triển phẩm chất, năng lực; lựa chọn kịch bản.</td>
+                    <td>Tiến trình dạy học mạch lạc, phù hợp thời lượng 45 phút.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Biên soạn nội dung & phiếu học tập</strong></td>
+                    <td>Tạo ngân hàng câu hỏi phân hóa 4 mức độ; soạn nội dung phiếu bài tập.</td>
+                    <td>Thẩm định độ chuẩn xác khoa học; điều chỉnh ngôn ngữ gần gũi học sinh.</td>
+                    <td>Phiếu học tập có hướng dẫn rõ ràng, phân hóa đối tượng.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Thiết kế học liệu số & trực quan</strong></td>
+                    <td>Tạo hình ảnh minh họa, sơ đồ tư duy, gợi ý slide thuyết trình.</td>
+                    <td>Chọn lọc hình ảnh sư phạm, bố cục bài giảng thẩm mỹ, không gây xao nhãng.</td>
+                    <td>Bộ slide và học liệu số tương tác hấp dẫn.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Xây dựng tiêu chí đánh giá (Rubrics)</strong></td>
+                    <td>Gợi ý bảng tiêu chí đánh giá sản phẩm học tập theo mức đạt.</td>
+                    <td>Chuẩn hóa thang điểm và tiêu chí đánh giá phù hợp chuẩn đầu ra môn học.</td>
+                    <td>Bảng Rubrics đánh giá minh bạch, khả thi.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="paper-subsection-title">6.2 Giải pháp 2: Đổi mới PPDH kết hợp AI với cơ chế 'Rào chắn sư phạm' (Guardrails)</h3>
+            <p>Hệ thống thiết lập rào chắn ngăn AI cung cấp đáp án trực tiếp; AI đóng vai trò người gợi mở Socratic Tutor, hướng dẫn học sinh suy luận từng bước và bảo vệ năng lực nhận thức độc lập.</p>
+            <p class="table-caption">Bảng 5. Khung phân biệt 3 lớp bằng chứng học tập</p>
+            <div class="table-responsive">
+              <table class="academic-table">
+                <thead>
+                  <tr>
+                    <th>Lớp bằng chứng</th>
+                    <th>Điều kiện quan sát & thực hiện</th>
+                    <th>Minh chứng thu thập</th>
+                    <th>Kết luận sư phạm được phép đưa ra</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Lớp 1: Hoàn thành có hỗ trợ AI</strong></td>
+                    <td>Học sinh được phép sử dụng công cụ AI trong quá trình làm bài trên lớp.</td>
+                    <td>Lịch sử câu lệnh (prompt history), bản nháp bài làm đầu tiên.</td>
+                    <td>Chỉ phản ánh kỹ năng phối hợp với công nghệ; CHƯA chứng minh làm chủ kiến thức.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Lớp 2: Kiểm chứng và giải thích</strong></td>
+                    <td>Học sinh thuyết minh vì sao chọn giải pháp, phát hiện chỗ sai của AI.</td>
+                    <td>Biên bản phản biện lỗi của AI, bộ dữ liệu kiểm thử (test cases).</td>
+                    <td>Chứng minh học sinh có năng lực tư duy phản biện và hiểu bản chất vấn đề.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Lớp 3: Năng lực thực hiện độc lập</strong></td>
+                    <td>Rút hoàn toàn hỗ trợ AI; tự làm bài toán tương tự trên giấy hoặc máy.</td>
+                    <td>Bài làm độc lập không có kết nối internet/AI.</td>
+                    <td>MINH CHỨNG DUY NHẤT khẳng định học sinh thực sự đạt chuẩn năng lực môn học.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="paper-subsection-title">6.3 Giải pháp 3: Bộ chỉ số năng lực hiểu biết AI (AI Literacy) và Liêm chính học thuật</h3>
+            <p>Học sinh được bồi dưỡng 4 trụ cột: Hiểu giới hạn AI; Kỹ nghệ câu lệnh; Kiểm chứng dữ liệu qua SGK; Liêm chính học thuật (cam kết minh bạch việc sử dụng công nghệ).</p>
+            <p class="table-caption">Bảng 6. Bộ chỉ số năng lực hiểu biết AI (AI Literacy) và biểu hiện hành vi</p>
+            <div class="table-responsive">
+              <table class="academic-table">
+                <thead>
+                  <tr>
+                    <th>Trụ cột năng lực</th>
+                    <th>Biểu hiện hành vi cụ thể</th>
+                    <th>Công cụ đánh giá & kiểm chứng</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>1. Hiểu giới hạn AI</strong></td>
+                    <td>Chỉ ra được ít nhất 2 trường hợp AI đưa ra câu trả lời sai hoặc 'ảo giác'.</td>
+                    <td>Phiếu bài tập tìm lỗi sai trong đoạn văn/đoạn mã do AI sinh ra.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>2. Kỹ nghệ câu lệnh</strong></td>
+                    <td>Viết được prompt có cấu trúc rõ ràng, cung cấp đủ ngữ cảnh và tiêu chí.</td>
+                    <td>Nhật ký học tập ghi lại chuỗi prompt đối thoại với AI.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3. Kiểm chứng dữ liệu</strong></td>
+                    <td>Biết sử dụng SGK hoặc nguồn chính thống để đối chiếu thông tin AI cung cấp.</td>
+                    <td>Danh mục tài liệu đối chiếu đính kèm trong bài tập nhóm.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>4. Liêm chính học thuật</strong></td>
+                    <td>Có phần 'Tuyên bố sử dụng AI' (AI Disclosure) nêu rõ phần nào tự làm, phần nào AI gợi ý.</td>
+                    <td>Mẫu cam kết liêm chính học thuật trong các bài kiểm tra dự án.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <h3 class="paper-subsection-title">6.4 Giải pháp 4: Khung đánh giá toàn diện 3 mặt</h3>
+            <p class="table-caption">Bảng 7. Khung đánh giá 3 mặt áp dụng trong kiểm tra, đánh giá tại THPT Phục Hòa</p>
+            <div class="table-responsive">
+              <table class="academic-table">
+                <thead>
+                  <tr>
+                    <th>Mặt đánh giá</th>
+                    <th>Trọng số đề xuất</th>
+                    <th>Tiêu chí và minh chứng cụ thể</th>
+                    <th>Ý nghĩa giáo dục</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Mặt 1: Sản phẩm (Product)</strong></td>
+                    <td>30%</td>
+                    <td>Độ chính xác khoa học, tính đầy đủ của nội dung bài làm, tính thẩm mỹ của bài thuyết trình/sản phẩm học tập.</td>
+                    <td>Khuyến khích học sinh biết tận dụng công cụ để tạo sản phẩm chất lượng cao.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Mặt 2: Quá trình (Process)</strong></td>
+                    <td>30%</td>
+                    <td>Nhật ký prompt, các bước thử nghiệm và sửa lỗi, kỹ năng làm việc nhóm, thái độ học tập tích cực.</td>
+                    <td>Đánh giá phương pháp tư duy và nỗ lực kiên trì giải quyết vấn đề của học sinh.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Mặt 3: Năng lực độc lập (Independence)</strong></td>
+                    <td>40%</td>
+                    <td>Kết quả bài kiểm tra nhanh trực tiếp (vấn đáp, viết giấy, chạy thử nghiệm mới khi rút hỗ trợ AI).</td>
+                    <td>Đảm bảo tính trung thực, khẳng định năng lực cốt lõi thực chất của học sinh.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Section 7 -->
+          <section id="sec-thao-luan" class="paper-section">
+            <h2 class="paper-section-title">7. Thảo luận</h2>
+            <p>Hệ thống giải pháp đã giải quyết hài hòa mối quan hệ giữa ứng dụng công nghệ và bảo tồn năng lực tư duy. Đối chiếu với bối cảnh Trường THPT Phục Hòa, cơ sở hạ tầng CNTT gồm 02 phòng máy và mạng internet đáp ứng tốt việc thực thi các kịch bản. Tuy nhiên, nhà trường cần tạo điều kiện cho học sinh bán trú, vùng khó khăn được tiếp cận phòng máy ngoài giờ học để bảo đảm công bằng giáo dục số.</p>
+            <p class="table-caption">Bảng 8. Đối chiếu thiết kế nghiên cứu quốc tế và hàm ý vận dụng cho THPT Phục Hòa</p>
+            <div class="table-responsive">
+              <table class="academic-table">
+                <thead>
+                  <tr>
+                    <th>Nội dung đối chiếu</th>
+                    <th>Thực nghiệm Kestin et al. (2025) [8]</th>
+                    <th>Thực nghiệm Bastani et al. (2025) [10]</th>
+                    <th>Đề xuất vận dụng tại THPT Phục Hòa</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Đối tượng & Cấp học</strong></td>
+                    <td>Sinh viên Vật lý đại học (194 SV).</td>
+                    <td>Học sinh THPT môn Toán (Thổ Nhĩ Kỳ).</td>
+                    <td>Học sinh lớp 10, 11, 12 THPT Phục Hòa.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Phương thức can thiệp</strong></td>
+                    <td>Gia sư AI thiết kế theo nguyên lý học tập tích cực.</td>
+                    <td>So sánh ChatGPT tự do vs Gia sư AI có rào chắn.</td>
+                    <td>Thiết lập kịch bản prompt có rào chắn sư phạm cho GV & HS.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Kết quả học tập</strong></td>
+                    <td>Nhóm dùng AI vượt trội nhóm nghe giảng thụ động.</td>
+                    <td>ChatGPT tự do làm giảm điểm độc lập; nhóm rào chắn duy trì năng lực.</td>
+                    <td>Bắt buộc kiểm tra năng lực độc lập khi rút hỗ trợ công nghệ.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Hàm ý chính sách</strong></td>
+                    <td>Cần đầu tư phát triển hệ thống gia sư số bài bản.</td>
+                    <td>Cấm sử dụng AI không có định hướng sư phạm.</td>
+                    <td>Ban hành Quy chế ứng dụng AI trong kiểm tra và dạy học.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <!-- Section 8 -->
+          <section id="sec-ket-luan" class="paper-section">
+            <h2 class="paper-section-title">8. Kết luận và Khuyến nghị</h2>
+            <p><strong>Kết luận:</strong> Trí tuệ nhân tạo không thể và không bao giờ thay thế được vai trò truyền cảm hứng, bồi dưỡng nhân cách của người thầy. Tuy nhiên, giáo viên biết làm chủ AI sẽ nâng tầm chất lượng giảng dạy vượt bậc. Nghiên cứu tại THPT Phục Hòa đã mang đến bộ giải pháp đồng bộ từ thiết kế bài giảng, đổi mới phương pháp đến đo lường đánh giá năng lực thực chất của học sinh.</p>
+            <p><strong>Khuyến nghị:</strong> Ban Giám hiệu cần tiếp tục nâng cấp hạ tầng mạng số; các Tổ chuyên môn tích cực sinh hoạt chuyên môn theo bài học ứng dụng AI; Giáo viên luôn giữ vững nguyên tắc kiểm chứng sư phạm; Học sinh giữ vững tính trung thực và liêm chính trong học tập số.</p>
+          </section>
+
+          <!-- Section 9 -->
+          <section id="sec-tai-lieu" class="paper-section">
+            <h2 class="paper-section-title">9. Tài liệu tham khảo</h2>
+            <ol style="padding-left: 1.5rem; font-size: 0.92rem; line-height: 1.7; color: var(--text-muted);">
+              <li>Zawacki-Richter O, et al. Systematic review of research on artificial intelligence applications in higher education. <em>IJETHE</em>. 2019; 16: 39.</li>
+              <li>Kasneci E, et al. ChatGPT for good? On opportunities and challenges of large language models for education. <em>Learning and Individual Differences</em>. 2023; 103: 102274.</li>
+              <li>Casal-Otero L, et al. AI literacy in K-12: a systematic literature review. <em>IJ STEM Ed</em>. 2023; 10: 29.</li>
+              <li>Lo CK. What Is the Impact of ChatGPT on Education? A Rapid Review of the Literature. <em>Educ Sci</em>. 2023; 13(4): 410.</li>
+              <li>Bond M, et al. A meta systematic review of artificial intelligence in higher education. <em>IJETHE</em>. 2024; 21: 4.</li>
+              <li>Martin F, et al. Systematic review of research on artificial intelligence in K-12 education (2017–2022). <em>CAEAI</em>. 2024; 6: 100195.</li>
+              <li>Díaz B, Nussbaum M. Artificial intelligence for teaching and learning in schools: The need for pedagogical intelligence. <em>Comput & Educ</em>. 2024; 217: 105071.</li>
+              <li>Kestin G, et al. AI tutoring outperforms in-class active learning: an RCT introducing a novel research-based design. <em>Sci Rep</em>. 2025; 15: 17458.</li>
+              <li>Marzano D. Generative Artificial Intelligence (GAI) in Teaching and Learning Processes at K-12 Level. <em>Technol Knowl Learn</em>. 2026; 31: 789–829.</li>
+              <li>Bastani H, et al. Generative AI without guardrails can harm learning: Evidence from high school mathematics. <em>PNAS</em>. 2025; 122(26): e2422633122.</li>
+              <li>Deng R, et al. Does ChatGPT enhance student learning? A systematic review and meta-analysis. <em>Comput & Educ</em>. 2025; 227: 105224.</li>
+              <li>Létourneau A, et al. A systematic review of AI-driven intelligent tutoring systems in K-12. <em>npj Sci Learn</em>. 2025; 10: 29.</li>
+              <li>Bộ Giáo dục và Đào tạo. Công văn số 5512/BGDĐT-GDTrH về việc xây dựng kế hoạch giáo dục nhà trường. 2020.</li>
+              <li>UNESCO. AI competency framework for teachers. Paris, 2024.</li>
+              <li>UNESCO. AI competency framework for students. Paris, 2024.</li>
+            </ol>
+          </section>
+        </article>
+      </div>
+    </div>
+
+    <!-- TAB 2: HỆ THỐNG 4 GIẢI PHÁP CỐT LÕI -->
+    <div id="tab-solutions" class="tab-content">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem;">
+        <h2 style="font-size: 2rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem;">Hệ Thống 4 Giải Pháp Sư Phạm Đột Phá</h2>
+        <p style="color: var(--text-muted);">Được thiết kế chuyên biệt cho bối cảnh dạy học theo Chương trình GDPT 2018 tại Trường THPT Phục Hòa, tỉnh Cao Bằng.</p>
+      </div>
+
+      <div class="solutions-grid">
+        <!-- Solution 1 -->
+        <div class="solution-card">
+          <span class="solution-badge">GIẢI PHÁP 01</span>
+          <h3 class="solution-title">Quy Trình 4 Bước Thiết Kế Bài Giảng 5512 Bằng AI</h3>
+          <p class="solution-desc">Chuẩn hóa quy trình ứng dụng AI trong việc soạn kế hoạch bài dạy 5512, tạo học liệu số và câu hỏi phân hóa 4 mức độ nhận thức.</p>
+          <ul class="solution-steps">
+            <li><span class="step-num">1</span> Xác lập mục tiêu & bối cảnh học sinh THPT Phục Hòa</li>
+            <li><span class="step-num">2</span> Thiết kế câu lệnh chuyên sâu (Pedagogical Prompting)</li>
+            <li><span class="step-num">3</span> Sàng lọc, kiểm chứng độ chuẩn xác & biên tập sư phạm</li>
+            <li><span class="step-num">4</span> Đóng gói học liệu số tương tác (Slide, Mã QR, Form)</li>
+          </ul>
+        </div>
+
+        <!-- Solution 2 -->
+        <div class="solution-card">
+          <span class="solution-badge">GIẢI PHÁP 02</span>
+          <h3 class="solution-title">Đổi Mới PPDH Với 'Rào Chắn Sư Phạm' (Guardrails)</h3>
+          <p class="solution-desc">Khắc phục triệt để nguy cơ học sinh chép bài thụ động theo phát hiện từ nghiên cứu PNAS 2025; bảo vệ năng lực tư duy độc lập.</p>
+          <ul class="solution-steps">
+            <li><span class="step-num">✓</span> Cấm AI cung cấp đáp án trực tiếp hoặc mã nguồn đầy đủ</li>
+            <li><span class="step-num">✓</span> AI đóng vai trò Socratic Tutor chỉ gợi mở câu hỏi phản biện</li>
+            <li><span class="step-num">✓</span> Áp dụng mô hình Lớp học đảo ngược kết hợp trợ lý AI</li>
+            <li><span class="step-num">✓</span> Thiết lập điểm 'Rút hỗ trợ AI' bắt buộc trong mỗi bài học</li>
+          </ul>
+        </div>
+
+        <!-- Solution 3 -->
+        <div class="solution-card">
+          <span class="solution-badge">GIẢI PHÁP 03</span>
+          <h3 class="solution-title">Bộ Chỉ Số AI Literacy & Liêm Chính Học Thuật</h3>
+          <p class="solution-desc">Chuẩn hóa 4 trụ cột năng lực số và quy tắc đạo đức công nghệ cho giáo viên và học sinh theo Khung UNESCO 2024.</p>
+          <ul class="solution-steps">
+            <li><span class="step-num">1</span> Hiểu nguyên lý & nhận diện giới hạn, lỗi sai của AI</li>
+            <li><span class="step-num">2</span> Thành thạo kỹ nghệ đặt câu lệnh giải quyết vấn đề</li>
+            <li><span class="step-num">3</span> Kỹ năng kiểm chứng thông tin qua SGK và nguồn uy tín</li>
+            <li><span class="step-num">4</span> Cam kết văn hóa liêm chính (AI Disclosure Statement)</li>
+          </ul>
+        </div>
+
+        <!-- Solution 4 -->
+        <div class="solution-card">
+          <span class="solution-badge">GIẢI PHÁP 04</span>
+          <h3 class="solution-title">Khung Đánh Giá 3 Mặt Toàn Diện Học Sinh</h3>
+          <p class="solution-desc">Tái cấu trúc hình thức kiểm tra đánh giá, phân biệt rõ giữa sản phẩm có AI hỗ trợ và năng lực tự chủ thực chất của học trò.</p>
+          <ul class="solution-steps">
+            <li><span class="step-num">30%</span> Mặt 1: Sản phẩm học tập hoàn thiện (Product)</li>
+            <li><span class="step-num">30%</span> Mặt 2: Tiến trình tư duy & nhật ký giải quyết bài (Process)</li>
+            <li><span class="step-num">40%</span> Mặt 3: Năng lực độc lập khi rút hỗ trợ AI (Independence)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: BẢNG DỮ LIỆU & ĐỐI CHIẾU -->
+    <div id="tab-tables" class="tab-content">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 2rem;">
+        <h2 style="font-size: 2rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem;">Hệ Thống Bảng Biểu & Dữ Liệu Đối Chiếu</h2>
+        <p style="color: var(--text-muted);">Tổng hợp 9 bảng biểu khoa học chuẩn mực được xây dựng trong báo cáo.</p>
+      </div>
+
+      <div class="callout callout-info">
+        <div class="callout-title">💡 Ghi chú khoa học</div>
+        Mọi bảng biểu dưới đây đều có mặt đầy đủ trong file Word <strong>Bao_cao_AI_THPT_Phuc_Hoa.docx</strong> được lưu tại màn hình Desktop của bạn.
+      </div>
+
+      <!-- Quick table links -->
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 2rem;">
+        <a href="#sec-tong-quan" onclick="switchTab('report')" class="btn btn-outline" style="font-size: 0.82rem;">Bảng 1: 12 Công trình kinh điển</a>
+        <a href="#sec-phuong-phap" onclick="switchTab('report')" class="btn btn-outline" style="font-size: 0.82rem;">Bảng 2: Nhật ký chuỗi tìm kiếm</a>
+        <a href="#sec-ket-qua" onclick="switchTab('report')" class="btn btn-outline" style="font-size: 0.82rem;">Bảng 4: Phân công vai trò GV-AI-HS</a>
+        <a href="#sec-ket-qua" onclick="switchTab('report')" class="btn btn-outline" style="font-size: 0.82rem;">Bảng 5: 3 Lớp bằng chứng nhận thức</a>
+        <a href="#sec-ket-qua" onclick="switchTab('report')" class="btn btn-outline" style="font-size: 0.82rem;">Bảng 6: Bộ chỉ số AI Literacy</a>
+        <a href="#sec-ket-qua" onclick="switchTab('report')" class="btn btn-outline" style="font-size: 0.82rem;">Bảng 7: Khung đánh giá 3 mặt</a>
+      </div>
+    </div>
+
+    <!-- TAB 4: LỘ TRÌNH THỬ NGHIỆM -->
+    <div id="tab-timeline" class="tab-content">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem;">
+        <h2 style="font-size: 2rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem;">Lộ Trình Thử Nghiệm 6 Giai Đoạn (2026–2027)</h2>
+        <p style="color: var(--text-muted);">Kế hoạch hành động chi tiết triển khai tại Trường THPT Phục Hòa, huyện Quảng Hòa, tỉnh Cao Bằng.</p>
+      </div>
+
+      <p class="table-caption">Bảng 9. Kế hoạch và lộ trình thử nghiệm sư phạm 6 giai đoạn tại THPT Phục Hòa</p>
+      <div class="table-responsive">
+        <table class="academic-table">
+          <thead>
+            <tr>
+              <th>Giai đoạn</th>
+              <th>Thời gian</th>
+              <th>Nhiệm vụ trọng tâm</th>
+              <th>Sản phẩm & Minh chứng cần đạt</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Giai đoạn 1</strong></td>
+              <td>Tháng 10/2026</td>
+              <td>Tập huấn chuyên đề Kỹ năng ứng dụng AI và Kỹ nghệ câu lệnh (Prompting) cho toàn thể cán bộ quản lý và giáo viên.</td>
+              <td>100% giáo viên tạo tài khoản và nắm vững cấu trúc prompt 5 thành phần.</td>
+            </tr>
+            <tr>
+              <td><strong>Giai đoạn 2</strong></td>
+              <td>Tháng 11/2026</td>
+              <td>Mỗi tổ chuyên môn biên soạn 02 kế hoạch bài dạy 5512 mẫu có tích hợp AI và thiết lập rào chắn sư phạm.</td>
+              <td>06 bài giảng mẫu chuẩn hóa được lưu trữ trên thư viện số nhà trường.</td>
+            </tr>
+            <tr>
+              <td><strong>Giai đoạn 3</strong></td>
+              <td>Tháng 12/2026</td>
+              <td>Dạy thực nghiệm vòng 1 tại 02 lớp khối 10 (01 lớp can thiệp AI có rào chắn, 01 lớp đối chứng truyền thống).</td>
+              <td>Biên bản dự giờ chuyên môn, phiếu khảo sát hứng thú học tập của học sinh.</td>
+            </tr>
+            <tr>
+              <td><strong>Giai đoạn 4</strong></td>
+              <td>Tháng 01/2027</td>
+              <td>Tổ chức bài kiểm tra năng lực độc lập; phân tích dữ liệu điểm số giữa nhóm can thiệp và nhóm đối chứng.</td>
+              <td>Báo cáo phân tích định lượng chỉ số tiến bộ học tập.</td>
+            </tr>
+            <tr>
+              <td><strong>Giai đoạn 5</strong></td>
+              <td>Tháng 02–03/2027</td>
+              <td>Mở rộng thử nghiệm vòng 2 sang các bộ môn KHXH (Ngữ văn, Lịch sử) và các khối lớp 11, 12.</td>
+              <td>Ngân hàng học liệu số và câu hỏi phân hóa cho toàn bộ các khối lớp.</td>
+            </tr>
+            <tr>
+              <td><strong>Giai đoạn 6</strong></td>
+              <td>Tháng 04–05/2027</td>
+              <td>Hội thảo khoa học cấp trường; ban hành Sổ tay hướng dẫn ứng dụng AI trường THPT Phục Hòa.</td>
+              <td>Bộ cẩm nang thực chiến lưu hành nội bộ và chia sẻ liên trường.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TAB 5: THƯ VIỆN PROMPT SƯ PHẠM -->
+    <div id="tab-prompts" class="tab-content">
+      <div style="text-align: center; max-width: 800px; margin: 0 auto 2.5rem;">
+        <h2 style="font-size: 2rem; color: var(--primary); font-weight: 800; margin-bottom: 0.5rem;">Thư Viện Prompt Sư Phạm Thực Chiến</h2>
+        <p style="color: var(--text-muted);">Bộ câu lệnh mẫu được tối ưu hóa cho giáo viên THPT Phục Hòa để sử dụng trực tiếp trên ChatGPT, Gemini hoặc Claude.</p>
+      </div>
+
+      <!-- Prompt 1 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-subject">1. Prompt Soạn Hoạt Động Khởi Động Theo Chuẩn 5512 (Môn Tin Học 10)</div>
+          <button class="copy-btn" onclick="copyPrompt('p1', this)">📋 Sao chép Prompt</button>
+        </div>
+        <div class="prompt-box" id="p1">Bạn là chuyên gia sư phạm Tin học cấp THPT theo Chương trình GDPT 2018. Hãy thiết kế hoạt động Khởi động (thời lượng 7 phút) cho bài "Học máy và Khoa học dữ liệu" (Tin học 10, Kết nối tri thức).
+Ngữ cảnh: Học sinh Trường THPT Phục Hòa, tỉnh Cao Bằng. Hãy sử dụng tình huống thực tế địa phương: phân loại đặc sản nông sản Cao Bằng (hạt dẻ Trùng Khánh, thạch đen Thạch An).
+Yêu cầu theo cấu trúc 4 bước Công văn 5512:
+- Mục tiêu: Tạo hứng thú và nhu cầu tìm hiểu cách máy tính học từ dữ liệu.
+- Nội dung: Tình huống bài toán nhận diện chất lượng hạt dẻ qua hình ảnh.
+- Sản phẩm: Câu trả lời dự đoán của học sinh.
+- Tổ chức thực hiện: Mô tả chi tiết 4 bước: Chuyển giao nhiệm vụ -> Thực hiện -> Báo cáo -> Kết luận.</div>
+      </div>
+
+      <!-- Prompt 2 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-subject">2. Prompt Rào Chắn Sư Phạm (Gia Sư AI Không Cho Đáp Án Trực Tiếp)</div>
+          <button class="copy-btn" onclick="copyPrompt('p2', this)">📋 Sao chép Prompt</button>
+        </div>
+        <div class="prompt-box" id="p2">Bạn đóng vai trò là một Gia sư Sư phạm có Rào chắn (Pedagogical Guardrails AI Tutor) dành cho học sinh THPT Phục Hòa.
+QUY TẮC BẮT BUỘC:
+1. Tuyệt đối KHÔNG BAO GIỜ viết sẵn lời giải hoàn chỉnh hoặc cung cấp đoạn mã Python hoàn chỉnh cho học sinh.
+2. Khi học sinh gửi một bài toán hoặc đoạn mã bị lỗi:
+   - Hãy đặt một câu hỏi gợi mở để học sinh tự kiểm tra tư duy hiện tại.
+   - Gợi ý khái niệm lý thuyết trong SGK mà học sinh cần xem lại.
+   - Hướng dẫn học sinh cách tự tạo bộ dữ liệu kiểm thử (test cases) để phát hiện lỗi sai.
+3. Luôn khen ngợi sự kiên trì và khuyến khích học sinh tự tìm ra câu trả lời.</div>
+      </div>
+
+      <!-- Prompt 3 -->
+      <div class="prompt-card">
+        <div class="prompt-header">
+          <div class="prompt-subject">3. Prompt Tạo Ngân Hàng Câu Hỏi Phân Hóa 4 Mức Độ Nhận Thức</div>
+          <button class="copy-btn" onclick="copyPrompt('p3', this)">📋 Sao chép Prompt</button>
+        </div>
+        <div class="prompt-box" id="p3">Bạn là chuyên gia khảo thí và đánh giá giáo dục THPT. Hãy tạo ma trận và bộ 4 câu hỏi trắc nghiệm khách quan 4 lựa chọn (A, B, C, D) cho một đơn vị kiến thức bất kỳ theo 4 mức độ nhận thức:
+1. Mức độ Nhận biết: Nhận diện khái niệm, định nghĩa cơ bản.
+2. Mức độ Thông hiểu: Giải thích, phân biệt bản chất vấn đề.
+3. Mức độ Vận dụng: Giải quyết tình huống thực tế đơn giản.
+4. Mức độ Vận dụng cao: Phân tích, đánh giá, tổng hợp giải pháp mới.
+Mỗi câu hỏi phải đi kèm: Đáp án đúng, giải thích chi tiết vì sao đúng và chỉ rõ các phương án gây nhiễu vì sao sai.</div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Page Footer -->
+  <footer class="page-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Trường THPT Phục Hòa - Tỉnh Cao Bằng</h4>
+        <p>Địa chỉ: Huyện Quảng Hòa, Tỉnh Cao Bằng<br>Nghiên cứu ứng dụng trí tuệ nhân tạo trong thiết kế bài giảng và đổi mới phương pháp dạy học theo định hướng phát triển năng lực học sinh.</p>
+        <div style="margin-top: 1rem;">
+          <a href="Bao_cao_AI_THPT_Phuc_Hoa.docx" download class="btn btn-accent" style="font-size: 0.85rem;">
+            📥 Tải Bản Word Chính Thức (.docx)
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Liên Kết Nhanh</h4>
+        <ul>
+          <li><a href="#sec-tom-tat" onclick="switchTab('report')">Tóm tắt & Mục tiêu</a></li>
+          <li><a href="#sec-tong-quan" onclick="switchTab('report')">12 Công trình quốc tế</a></li>
+          <li><a href="#tab-solutions" onclick="switchTab('solutions')">4 Giải pháp cốt lõi</a></li>
+          <li><a href="#tab-timeline" onclick="switchTab('timeline')">Lộ trình 2026–2027</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Căn Cứ Khoa Học</h4>
+        <ul>
+          <li>Công văn 5512/BGDĐT-GDTrH</li>
+          <li>Chương trình GDPT 2018</li>
+          <li>Khung AI UNESCO (2024)</li>
+          <li>Nghiên cứu PNAS (Bastani 2025)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026–2027 Trường THPT Phục Hòa • Báo cáo Nghiên cứu Sư phạm Chuyển đổi số.
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
